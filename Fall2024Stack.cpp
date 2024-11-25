@@ -50,6 +50,9 @@ int main()
 				break;
 			}
 		}
+
+		if (stack1.isStackEmpty())
+			cout << "The set is balanced!\n";
 	}
 
 	catch (int code)

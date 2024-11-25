@@ -2,10 +2,38 @@
 //
 
 #include <iostream>
-
+#include "Stack.h"
+using namespace std; 
 int main()
-{
-    std::cout << "Hello World!\n";
+{ 
+	try
+	{
+		Stack stack1; // LIFO 
+		stack1.push('a');
+		stack1.push('b');
+
+		cout << stack1.top() << endl;
+		stack1.pop();
+		stack1.pop();
+		stack1.pop();
+	}
+
+	catch (int code)
+	{
+		switch (code)
+		{case 1:
+			cout << "Overflow!\n";
+			break;
+		case 2:
+			cout << "Underflow!\n";
+			break;
+		default:
+			break;
+		}
+
+
+	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

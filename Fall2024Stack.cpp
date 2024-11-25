@@ -4,18 +4,52 @@
 #include <iostream>
 #include "Stack.h"
 using namespace std; 
+#include <string>
 int main()
 { 
 	try
 	{
 		Stack stack1; // LIFO 
-		stack1.push('a');
-		stack1.push('b');
+		// The user will enter a set of parentheses like this for example: 
+		// {({()})} 
 
-		cout << stack1.top() << endl;
-		stack1.pop();
-		stack1.pop();
-		stack1.pop();
+		//cout << stack1.top() << endl;
+		
+		// Using the functions we have, write code to empty the stack
+		/*while (!stack1.isStackEmpty())
+			stack1.pop();*/
+
+		// write code to find if you have balanced parentheses 
+		string input;
+		getline(cin, input);
+
+		for (char c : input)
+		{
+			//cout << c << endl;
+			/*for (int i = 0; i < input.size(); i++)
+			{
+				cout << input[i] << endl;
+			}*/
+
+			switch (c)
+			{
+			case '{': case '(':
+				stack1.push(c);
+				break;
+			case '}':
+				char match = stack1.pop();
+				if (match != '{')
+					cout << "The set is not balanced!\n";
+					break;
+			case ')':
+				char match = stack1.pop();
+				if (match != '(')
+					cout << "The set is not balanced!\n";
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	catch (int code)
